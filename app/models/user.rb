@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :devices
   has_many :rents
+  validates :email, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true
+  validates :nickname, uniqueness: true
 end
