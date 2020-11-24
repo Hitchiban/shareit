@@ -15,4 +15,12 @@
 
 .navbar-light .navbar-nav .nav-link {
   color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.navbar-lewagon-white {
+  background-color: #1D1347;
+  transition-delay: 0.15s;
+
 }
