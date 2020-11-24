@@ -4,7 +4,7 @@ class CreateDevices < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.integer :price
-      t.references :customer, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
