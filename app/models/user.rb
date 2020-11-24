@@ -6,6 +6,4 @@ class User < ApplicationRecord
   has_many :devices, dependent: :destroy
   has_many :rents
   validates :email, presence: true, uniqueness: true
-  validates :first_name, :last_name, presence: true
-  validates :nickname, uniqueness: true
 end

@@ -5,88 +5,20 @@
   </div>
 </div>
 <div class="container">
-   <div class="cards-list">
-     <div class="card-device">
-       <div class="card_image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/808px-Cat_silhouette.svg.png" />
-       </div>
-       <div class="card_title title-white">
-         <p>Device</p>
-       </div>
-     </div>
-
-   <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-white">
-       <p>Device</p>
-     </div>
-   </div>
-
-   <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-     </div>
-     <div class="card_title">
-       <p>lorem</p>
-     </div>
-   </div>
-
-   <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-
-     <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-
-     <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-
-     <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-
-     <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-
-     <div class="card-device">
-     <div class="card_image">
-       <img src="https://images.unsplash.com/photo-1526509867162-5b0c0d1b4b33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
-       </div>
-     <div class="card_title title-black">
-       <p>Device</p>
-     </div>
-     </div>
-   </div>
+  <div class="cards-list">
+    <% @devices.each do |device| %>
+      <%= link_to device_path(device) do  %>
+        <div class="card-device">
+          <div class="card_image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/808px-Cat_silhouette.svg.png" />
+          </div>
+          <div class="card_title title-white">
+            <p><%= device.name %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 
