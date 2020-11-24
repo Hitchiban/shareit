@@ -17,6 +17,12 @@
   color: white;
   border-radius: 5px;
   border: 1px solid white;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 0.9;
+    color: white;
+  }
 }
 
 .navbar-lewagon-white {
