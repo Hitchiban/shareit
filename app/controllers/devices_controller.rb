@@ -8,5 +8,6 @@ class DevicesController < ApplicationController
 
   def show
     @device = Device.find(params[:id])
+    @rent = Rent.new
   end
 end
