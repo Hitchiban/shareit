@@ -15,26 +15,41 @@ ActiveRecord::Schema.define(version: 2020_11_23_181439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "genre"
+    t.integer "birth_date"
+    t.integer "phone_number"
+    t.string "address"
+    t.integer "zipcode"
+    t.string "nickname"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "price"
-    t.bigint "user_id", null: false
+    t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_devices_on_user_id"
+    t.index ["customer_id"], name: "index_devices_on_customer_id"
   end
 
   create_table "rents", force: :cascade do |t|
     t.integer "date_begin"
     t.integer "date_end"
-    t.bigint "user_id", null: false
+    t.bigint "customer_id", null: false
     t.bigint "device_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "status", default: false
+    t.index ["customer_id"], name: "index_rents_on_customer_id"
     t.index ["device_id"], name: "index_rents_on_device_id"
-    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_181439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "devices", "users"
+  add_foreign_key "devices", "customers"
+  add_foreign_key "rents", "customers"
   add_foreign_key "rents", "devices"
-  add_foreign_key "rents", "users"
 end
