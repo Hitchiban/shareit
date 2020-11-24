@@ -42,4 +42,23 @@
    </ul>
   </div>
 </div>
+<div class="container">
+  <%= simple_form_for [@device, @rent] do |f|%>
+    <%= f.input :date_begin %>
+    <%= f.input :date_end %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<h3>Your request for this <%= @device.name  %></h3>
+<% @device.rents.each do |rent| %>
+  <% if rent.user_id == current_user.id %>
+    <div>
+      <%= rent.date_begin %> | <%= rent.date_end %> | 
+      <% if rent.status == true %> 
+       <p> accepted ! </p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
 
