@@ -47,6 +47,7 @@
       <%= f.submit :Submit, class: 'btn btn-success' %>
     <% end %>
   </div>
+
   <div class="col-md-8">
     <h3>Your request for this <%= @device.name %></h3>
     <% @device.rents.each do |rent| %>
