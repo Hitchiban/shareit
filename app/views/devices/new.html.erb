@@ -8,10 +8,12 @@
           <%= f.input :description %>
           <%= f.input :price %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-          <div class="">
-            <%= f.button :submit, class: 'btn-show' %>
-            <% end %>
-            <%= link_to 'Back to index', devices_path, class: 'btn-show'%>
+          <div class="btn-container">
+            <div class="btn-formnew">
+              <%= f.button :submit, class: 'btn-show' %>
+              <% end %>
+              <%= link_to 'Back to index', devices_path, class: 'btn-show' %>
+            </div>
           </div>
         </div>
       </div>
