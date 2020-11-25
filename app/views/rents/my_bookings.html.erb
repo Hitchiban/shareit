@@ -1,0 +1,15 @@
+<div class="container-bookings">
+  <div class="container">
+    <div class="col-md-8">
+      <% @my_bookings.each do |booking| %>
+        <% if booking.user_id == current_user.id %>
+          <div>
+            <%= booking.date_begin %> | <%= booking.date_end %> |
+            <% if booking.status == true %>
+            <p> accepted ! </p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</div>

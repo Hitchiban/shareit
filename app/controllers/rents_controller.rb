@@ -5,10 +5,15 @@ class RentsController < ApplicationController
     @rent.user = current_user
     @rent.device = Device.find(params[:device_id])
     if @rent.save
-      redirect_to device_path(params[:device_id])
+      redirect_to my_bookings_path
     else
-      render "device/show"
+      @device = @rent.device
+      render "devices/show"
     end
+  end
+
+  def my_bookings
+    @my_bookings = Rent.where("user_id = ?", current_user)
   end
 
   private
