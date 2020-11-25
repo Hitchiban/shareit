@@ -3,13 +3,17 @@
     <div class="col-md-8">
       <% @my_bookings.each do |booking| %>
         <% if booking.user_id == current_user.id %>
-          <div>
-            <%= booking.date_begin %> | <%= booking.date_end %> |
-            <% if booking.status == true %>
-            <p> accepted ! </p>
-            <% end %>
+          <div class="bookings-container">
+            <div class="bookings-dates">
+              <p>Congrats, this is your booking!</p>
+              <%= booking.date_begin %> | <%= booking.date_end %> |
+              <% if booking.status == true %>
+              <p> accepted ! </p>
+              <% end %>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
+  </div>
 </div>
