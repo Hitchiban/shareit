@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= 'fixed-top' if params[:controller] == 'devices' && params[:action] == 'index' %>">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= 'fixed-top' if params[:controller] == 'devices' || params[:controller] == 'pages' && params[:action] == 'index' || params[:action] == 'home' %>">
   <%= link_to devices_path, class: "navbar-brand" do %>
     <%= image_tag "https://cdn1.iconfinder.com/data/icons/youtuber/256/youtube-gaming-logo-512.png" %>
     <% end %>
