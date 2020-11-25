@@ -1,6 +1,9 @@
 import flatpickr from "flatpickr";
+import "flatpickr/dist/themes/airbnb.css"
 
 flatpickr(".datepicker", {
-  allowInput: true
+  altInput: true,
+  allowInput: true,
+  enableTime: true
 });
 
