@@ -41,3 +41,18 @@
   align-items: center;
   justify-content: center;
 }
+
+.show-btn a {
+   padding: 10px;
+  color: white;
+  background-color: #7579ff;
+  border-radius: 8px;
+  border: 1px #7579ff;
+  text-decoration: none;
+
+    &:hover {
+  background-color: #1D1347;
+  transform: scale(0.9, 0.9);
+  color: white;
+  }
+}
