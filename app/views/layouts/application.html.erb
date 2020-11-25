@@ -7,7 +7,7 @@
     <link rel = "icon" href =  "https://www.flaticon.com/svg/static/icons/svg/316/316319.svg" type = "image/x-icon"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
@@ -16,5 +16,6 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
