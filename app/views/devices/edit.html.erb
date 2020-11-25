@@ -1,12 +1,10 @@
-<h1>create a new product</h1>
+<h1>edit a product</h1>
 <%= simple_form_for(@device) do |f| %>
 <%= f.input :name %>
 <%= f.input :description %>
 <%= f.input :price %>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
 <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
 
 <%= link_to 'back to index', devices_path, class: 'btn btn-success'%>
-
-<% console %>
