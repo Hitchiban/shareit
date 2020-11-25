@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= 'fixed-top' if params[:controller] == 'devices' && params[:action] == 'index' %>">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to devices_path, class: "navbar-brand" do %>
     <%= image_tag "https://cdn1.iconfinder.com/data/icons/youtuber/256/youtube-gaming-logo-512.png" %>
     <% end %>
 
@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
