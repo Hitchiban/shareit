@@ -36,7 +36,7 @@ class RentsController < ApplicationController
     @rent.save
     redirect_to "/my_devices"
   end
-
+  
   private
 
   def rent_params
