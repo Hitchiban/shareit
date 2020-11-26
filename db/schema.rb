@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_11_26_093122) do
+=======
+ActiveRecord::Schema.define(version: 2020_11_25_200251) do
+>>>>>>> 6a132d0e943c5461409c9344fe6ba53d7bc05623
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +65,15 @@ ActiveRecord::Schema.define(version: 2020_11_26_093122) do
     t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "device_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["device_id"], name: "index_reviews_on_device_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,4 +98,5 @@ ActiveRecord::Schema.define(version: 2020_11_26_093122) do
   add_foreign_key "devices", "users"
   add_foreign_key "rents", "devices"
   add_foreign_key "rents", "users"
+  add_foreign_key "reviews", "devices"
 end

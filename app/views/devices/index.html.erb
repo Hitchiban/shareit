@@ -1,7 +1,17 @@
 <div class="banner">
   <div class="banner-description">
-    <h1> Dream big, play more</h1>
+    <h1> Dream big, play more <i class="fas fa-user-astronaut"></i> </h1>
     <p>Rent your favorite console right now !</p>
+      <div class="form-inline  d-inline-flex p-2 bd-highlight">
+        <%= form_tag devices_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "My next console"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary " %> 
+        <% end %>
+      </div>
   </div>
 </div>
 <div class="container">

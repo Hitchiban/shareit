@@ -3,13 +3,19 @@ class DevicesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    if params[:query].present?
+      @devices = Device.global_search(params[:query])
+    else
     @devices = Device.all
+<<<<<<< HEAD
 
     @markers = @devices.geocoded.map do |device|
       {
         lat: device.latitude,
         lng: device.longitude
       }
+=======
+>>>>>>> 6a132d0e943c5461409c9344fe6ba53d7bc05623
     end
   end
 
@@ -49,6 +55,10 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     @device.destroy
     redirect_to devices_path
+  end
+
+  def my_devices
+    @my_devices = Device.where("user_id = ?", current_user)
   end
 
   private

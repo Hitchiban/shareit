@@ -1,0 +1,14 @@
+<div>
+    <ul>
+      <div>
+        <h2>My devices</h2>
+        <% @my_devices.each do |device| %>
+        <li>
+          <div>
+            <%= device.name %>
+          </div>
+        <% end %>
+        </li>
+      </div>
+    </ul>
+  </div>
