@@ -6,16 +6,14 @@ class DevicesController < ApplicationController
     if params[:query].present?
       @devices = Device.global_search(params[:query])
     else
-    @devices = Device.all
-<<<<<<< HEAD
-
-    @markers = @devices.geocoded.map do |device|
-      {
-        lat: device.latitude,
-        lng: device.longitude
-      }
-=======
->>>>>>> 6a132d0e943c5461409c9344fe6ba53d7bc05623
+      @devices = Device.all
+      @markers = @devices.geocoded.map do |device|
+        {
+          lat: device.latitude,
+          lng: device.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { device: device })
+        }
+      end
     end
   end
 

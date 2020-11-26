@@ -9,7 +9,7 @@
             class: "form-control",
             placeholder: "My next console"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary " %> 
+          <%= submit_tag "Search", class: "btn btn-primary " %>
         <% end %>
       </div>
   </div>
@@ -20,7 +20,7 @@
       <%= link_to device_path(device) do  %>
         <div class="card-device">
           <div class="card_image">
-            <% unless device.photos.attachments.nil? %>
+            <% if device.photos.attached? %>
               <%= cl_image_tag device.photos.first.key, height: 300, width: 400, crop: :fill %>
             <% end %>
           </div>
