@@ -44,6 +44,10 @@ class DevicesController < ApplicationController
     redirect_to devices_path
   end
 
+  def my_devices
+    @my_devices = Device.where("user_id = ?", current_user)
+  end
+
   private
 
   def device_params
