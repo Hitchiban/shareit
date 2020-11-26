@@ -1,6 +1,6 @@
 class Device < ApplicationRecord
   belongs_to :user
-  validates :name, :description, :price, presence: true
+  validates :name, :description, :address, :price, presence: true
   has_many :rents, dependent: :destroy
   has_many_attached :photos
 

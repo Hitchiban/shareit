@@ -8,3 +8,25 @@
   font-family: 'Open Sans', sans-serif;
   color: black;
 }
+
+#map {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 100vh;
+  right: 0;
+  border-radius: 10px;
+
+}
+
+@media (max-width: 600px) {
+#map {
+  display: none;
+}
+}
+
+.map-container {
+  display: flex;
+}
