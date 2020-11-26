@@ -31,7 +31,7 @@ import "plugins/flatpickr"
 // import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutoComplete } from '../plugins/init_autocomplete';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 
 document.addEventListener('turbolinks:load', () => {
