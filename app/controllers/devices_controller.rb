@@ -3,7 +3,11 @@ class DevicesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    if params[:query].present?
+      @devices = Device.global_search(params[:query])
+    else
     @devices = Device.all
+    end
   end
 
   def show
