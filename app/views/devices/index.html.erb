@@ -20,11 +20,12 @@
           <div class="card-device">
             <div class="card-device-image">
               <% if device.photos.attached? %>
-                <%= cl_image_tag device.photos.first.key, height: 300, crop: :fill %>
+                <%= cl_image_tag device.photos.first.key, height: 200, crop: :fill %>
               <% end %>
             </div>
             <div class="card-device-description">
               <div><%=device.name%></div>
+              <div><%=device.description%></div>
               <div><%= device.address%></div>
             </div>
           </div>
