@@ -6,7 +6,14 @@ class DevicesController < ApplicationController
     if params[:query].present?
       @devices = Device.global_search(params[:query])
     else
-    @devices = Device.all
+      @devices = Device.all
+      @markers = @devices.geocoded.map do |device|
+        {
+          lat: device.latitude,
+          lng: device.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { device: device })
+        }
+      end
     end
   end
 
@@ -55,6 +62,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :description, :price, photos: [])
+    params.require(:device).permit(:name, :description, :address, :price, photos: [])
   end
 end
