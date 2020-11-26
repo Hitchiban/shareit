@@ -16,11 +16,30 @@ class RentsController < ApplicationController
     @my_bookings = Rent.where("user_id = ?", current_user)
   end
 
-  
+  def accepted
+    @rent = Rent.find(params[:id])
+    @rent.status = "accepted"
+    @rent.save
+    redirect_to "/my_devices"
+  end
 
+  def pending
+    @rent = Rent.find(params[:id])
+    @rent.status = "pending"
+    @rent.save
+    redirect_to "/my_devices"
+  end
+
+  def refused
+    @rent = Rent.find(params[:id])
+    @rent.status = "refused"
+    @rent.save
+    redirect_to "/my_devices"
+  end
+  
   private
 
   def rent_params
     params.require(:rent).permit(:date_begin, :date_end, :device_id, :status)
-  end 
+  end
 end
