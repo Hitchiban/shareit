@@ -1,3 +1,4 @@
+<% console %>
 <div class="container">
   <div class="carousel-name">
     <div class="carousel-description mb-4">
@@ -64,9 +65,33 @@
         </div>
       </div>
       <div class="show-btn">
-        <%= link_to 'edit product', edit_device_path(@device)%> | <%= link_to 'destroy', @device, method: :delete %>
+        <% if user_signed_in? && @device.user_id == current_user.id%>
+          <%= link_to 'edit product', edit_device_path(@device)%> | <%= link_to 'destroy', device_path(@device), method: :delete %>
+        <% end %>
       </div>
     </div>
   </div>
-
+</div>
+  <div>
+    <ul>
+      <div>
+        <h2>reviews</h2>
+        <% @device.reviews.each do |review| %>
+        <li>
+          <div>
+            <%= review.content %> .....
+            <%= review.rating %>
+          </div>
+        <% end %>
+        </li>
+      </div>
+    </ul>
+  </div>
+<div>
+  <h2>add a review</h2>
+    <%= simple_form_for [@device, Review.new] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
