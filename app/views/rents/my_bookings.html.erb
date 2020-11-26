@@ -6,9 +6,13 @@
           <div class="bookings-container">
             <div class="bookings-dates">
               <p>Congrats, this is your booking!</p>
-              <%= booking.date_begin %> | <%= booking.date_end %> |
-              <% if booking.status == true %>
-              <p> accepted ! </p>
+             <%= booking.device.name %> | <%= booking.date_begin %> | <%= booking.date_end %> |
+              <% if booking.status == 'accepted' %>
+              <p> booking accepted </p>
+              <% elsif booking.status == 'refused' %>
+              <p> booking refused </p>
+              <% else %>
+              <p> <%= booking.status %> </p>
               <% end %>
             </div>
           </div>

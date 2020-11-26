@@ -57,6 +57,7 @@ class DevicesController < ApplicationController
 
   def my_devices
     @my_devices = Device.where("user_id = ?", current_user)
+    @booked_devices = Rent.where(device: @my_devices)
   end
 
   private

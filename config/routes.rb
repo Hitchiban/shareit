@@ -9,5 +9,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/my_bookings", to: "rents#my_bookings"
   get "/my_devices", to: "devices#my_devices"
-end
 
+  resources :rents, only: [] do
+    member do
+      patch "accepted"
+      patch "pending"
+      patch "refused"
+    end
+  end
+end

@@ -7,15 +7,46 @@
           <div>
             <%= device.name %> | <%= device.price %> euros per day
           </div>
+          <br>
           <div class="show-btn">
             <% if user_signed_in? && device.user_id == current_user.id%>
               <%= link_to 'edit product', edit_device_path(device)%> | <%= link_to 'destroy', device_path(device), method: :delete %>
             <% end %>
           </div>
+          <br>
         <% end %>
         </li>
       </div>
     </ul>
   </div>
+<div>
+  <ul>
+    <div>
+      <h2>My devices</h2>
+        <% @booked_devices.each do |booking| %>
+        <li>
+          <div>
+            <%= booking.device.name %> | <%= booking.device.price %> euros per day
+          </div>
+          <div>
+            From <%= booking.date_begin %> to <%= booking.date_end %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= booking.status %>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul>
+                  <li><%= link_to "accepted", accepted_rent_path(booking), method: :patch %></li>
+                  <li><%= link_to "pending", pending_rent_path(booking), method: :patch %></li>
+                  <li><%= link_to "refused", refused_rent_path(booking), method: :patch %></li>
+                </ul>
+              </div>
+            </div>
+          <br>
+          <% end %>
+        </li>
+      </div>
+  </ul>
+</div>
 <% console %>
 

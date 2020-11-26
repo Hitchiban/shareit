@@ -1,4 +1,3 @@
-<% console %>
 <div class="container">
   <div class="carousel-name">
     <div class="carousel-description mb-4">
@@ -63,11 +62,6 @@
           <% end %>
         </div>
         </div>
-      </div>
-      <div class="show-btn">
-        <% if user_signed_in? && @device.user_id == current_user.id%>
-          <%= link_to 'edit product', edit_device_path(@device)%> | <%= link_to 'destroy', device_path(@device), method: :delete %>
-        <% end %>
       </div>
     </div>
   </div>
