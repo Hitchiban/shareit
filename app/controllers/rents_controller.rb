@@ -16,6 +16,8 @@ class RentsController < ApplicationController
     @my_bookings = Rent.where("user_id = ?", current_user)
   end
 
+  
+
   private
 
   def rent_params
