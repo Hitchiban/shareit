@@ -59,6 +59,10 @@ class DevicesController < ApplicationController
     @my_devices = Device.where("user_id = ?", current_user)
   end
 
+  def booking_calculation
+    @final_price = (Rent.date_end - Rent.date_begin) * price
+  end
+
   private
 
   def device_params
