@@ -4,6 +4,13 @@ class DevicesController < ApplicationController
 
   def index
     @devices = Device.all
+
+    @markers = @devices.geocoded.map do |device|
+      {
+        lat: device.latitude,
+        lng: device.longitude
+      }
+    end
   end
 
   def show
@@ -47,6 +54,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :description, :price, photos: [])
+    params.require(:device).permit(:name, :description, :address, :price, photos: [])
   end
 end
