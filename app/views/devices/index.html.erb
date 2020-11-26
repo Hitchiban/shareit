@@ -8,7 +8,7 @@
             class: "form-control",
             placeholder: "Where do you want to rent a console ?"
           %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-sm btn-block" %> 
+        <%= submit_tag "Search", class: "btn btn-primary btn-sm btn-block" %>
         <% end %>
   </div>
 </div>
@@ -18,13 +18,14 @@
       <% @devices.each do |device| %>
         <%= link_to device_path(device) do  %>
           <div class="card-device">
-            <div class="card_image">
+            <div class="card-device-image">
               <% if device.photos.attached? %>
-                <%= cl_image_tag device.photos.first.key, height: 300, width: 400, crop: :fill %>
+                <%= cl_image_tag device.photos.first.key, height: 300, crop: :fill %>
               <% end %>
             </div>
-            <div class="card_title title-white">
-              <%=device.name  %>
+            <div class="card-device-description">
+              <div><%=device.name%></div>
+              <div><%= device.address%></div>
             </div>
           </div>
         <% end %>
