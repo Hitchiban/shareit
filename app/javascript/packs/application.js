@@ -34,7 +34,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 
-dynamicRating();
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -42,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
   initAutocomplete();
+  dynamicRating();
 });
