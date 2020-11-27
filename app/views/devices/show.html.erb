@@ -74,35 +74,35 @@
     </div>
   </div>
 </div>
-  <div>
-    <ul>
-      <div>
-        <h2>reviews</h2>
-        <% @device.reviews.each do |review| %>
-        <li>
-          <div>
-            <%= review.title %>
-            <%= review.content %> .....
-            <%= review.rating %>
-          </div>
-        <% end %>
-        </li>
+<div class="container">
+      <h6>Average rating : <%= @average_rating %></h6>
+      <div class="reviews">
+          <% @reviews.each do |review| %>
+            <p>
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </p>
+            <p><%= review.content %></p>
+          <% end %>
       </div>
-    </ul>
-  </div>
-<div>
+
   <% if user_signed_in? && @device.user_id != current_user.id %>
 
   <h2>add a review</h2>
-    <%= simple_form_for [@device, Review.new] do |f| %>
+    <%= simple_form_for([@device, Review.new], remote: true) do |f| %>
+    <%= f.input :rating, as: :hidden %>
+    <div class="my-3">
+        <% 5.times do |index| %>
+          <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
+        <% end %>
+    </div>
     <%= f.input :content %>
-    <%= f.input :rating %>
-    <%= f.button :submit %>
+    
+    <%= f.button :submit, class: "btn btn-primary mb-4" %>
     <% end %>
   <% end %>
-  <i class="far fa-star"></i>
-  <i class="far fa-star"></i>
-  <i class="far fa-star"></i>
-  <i class="far fa-star"></i>
-  <i class="far fa-star"></i>
 </div>

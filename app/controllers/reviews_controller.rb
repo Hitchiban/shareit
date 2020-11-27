@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to device_path(@device)
     else
-      render :new
+      render 'devices/show'
     end
   end
 
