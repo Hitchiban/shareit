@@ -7,7 +7,9 @@
           <% @my_devices.each do |device| %>
           <li>
             <div class="card-trip">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <% if device.photos.attached? %>
+              <%= cl_image_tag device.photos.first.key, height: 500, crop: :fill %>
+            <% end %>
               <div class="card-trip-infos">
                 <div>
                   <h2><%= device.name %></h2>
@@ -42,7 +44,9 @@
           <% @booked_devices.each do |booking| %>
           <li>
             <div class="card-product">
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% if booking.device.photos.attached? %>
+              <%= cl_image_tag booking.device.photos.first.key, height: 100, crop: :fill %>
+            <% end %>
               <div class="card-container">
                 <div class="card-product-infos">
                 <h2><%= booking.device.name %></h2>
