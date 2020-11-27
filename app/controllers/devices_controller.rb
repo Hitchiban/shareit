@@ -34,7 +34,7 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
     @device.user = current_user
     if @device.save
-      redirect_to devices_path
+      redirect_to my_devices_path
     else
       render :new
     end
@@ -52,7 +52,7 @@ class DevicesController < ApplicationController
   def destroy
     @device = Device.find(params[:id])
     @device.destroy
-    redirect_to devices_path
+    redirect_to my_devices_path
   end
 
   def my_devices
@@ -63,6 +63,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :description, :address, :price, photos: [])
+    params.require(:device).permit(:name, :description, :address, :price, :brand, :controller, :game, photos: [])
   end
 end

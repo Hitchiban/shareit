@@ -22,10 +22,11 @@
 <div>
   <ul>
     <div>
-      <h2>My devices</h2>
+      <h2>Booking and validations</h2>
         <% @booked_devices.each do |booking| %>
         <li>
           <div>
+
             <%= booking.device.name %> | <%= booking.device.price %> euros per day
           </div>
           <div>
@@ -48,4 +49,3 @@
       </div>
   </ul>
 </div>
-
