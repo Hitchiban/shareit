@@ -91,10 +91,11 @@
     </ul>
   </div>
 <div>
-  <% if user_signed_in? && @device.user_id != current_user.id %>
+  <% if user_signed_in? && @device.user_id != current_user.id%>
 
   <h2>add a review</h2>
     <%= simple_form_for [@device, Review.new] do |f| %>
+    <%= f.input :title %>
     <%= f.input :content %>
     <%= f.input :rating %>
     <%= f.button :submit %>
