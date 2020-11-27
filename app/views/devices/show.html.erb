@@ -83,7 +83,7 @@
     <h6>Average rating : <%= @average_rating.round(2) %></h6>
     <div class="reviews">
       <% @reviews.each do |review| %>
-      <%= review.title %>
+      <h2><%= review.title %></h2>
         <p>
           <% review.rating.times do %>
             <i class="fas fa-star"></i>
@@ -103,7 +103,7 @@
 
   <h5>Add a review :</h5>
     <%= simple_form_for([@device, Review.new], remote: true) do |f| %>
-  <%= f.input :title %>  
+  <%= f.input :title %>
   <%= f.input :rating, input_html: {value: 0}, as: :hidden %>
     <div class="my-3">
         <% 5.times do |index| %>
