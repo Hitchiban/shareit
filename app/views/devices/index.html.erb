@@ -24,12 +24,16 @@
               <% end %>
             </div>
             <div class="card-device-description">
-              <div><%=device.name%></div>
-              <div><%=device.price%>€ per day</div>
+              <div class="device-brand">
+                <div class="device-name"> <h2><%=device.name%></h2></div>
+                <div><%=device.controller%> controller(s)</div>
+              </div>
               <div><%=device.brand%></div>
-              <div><%=device.controller%> controller(s)</div>
-              <div><%=device.description%></div>
-              <div><%= device.address%></div>
+              <div class="device-description"> <h5><%=device.description%></h5></div>
+              <div class="device-pricing">
+                <div class="device-adress"><%= device.address%></div>
+                <div class="device-price"><%=device.price%>€ per day</div>
+              </div>
             </div>
           </div>
         <% end %>

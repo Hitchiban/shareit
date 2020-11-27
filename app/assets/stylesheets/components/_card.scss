@@ -74,6 +74,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
+    width: 100%;
   }
 }
 
@@ -84,6 +85,23 @@
 .title-black {
   color: black;
 }
+
+.device-name h2 {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 5px;
+  font-weight: 20px;
+}
+
+.device-pricing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.device-brand {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 
 
