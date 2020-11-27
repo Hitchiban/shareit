@@ -43,4 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   dynamicRating();
   flatpickrFonction();
+  $('.dropdown-toggle').dropdown()
 });
