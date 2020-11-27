@@ -32,6 +32,7 @@ import "plugins/flatpickr"
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { dynamicRating } from "../plugins/starsInReviewForm";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
   initAutocomplete();
+  dynamicRating();
 });

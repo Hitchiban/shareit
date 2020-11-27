@@ -20,6 +20,9 @@ class DevicesController < ApplicationController
   def show
     @device = Device.find(params[:id])
     @rent = Rent.new
+    @review = Review.new
+    @reviews = @device.reviews
+    @average_rating = @reviews.average(:rating)
   end
 
   def new
