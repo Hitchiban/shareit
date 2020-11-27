@@ -7,12 +7,16 @@
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :price %>
+          <%= f.input :brand %>
+          <%= f.input :controller %>
+          <%= f.input :game %>
+          <%= f.input :address %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <div class="btn-container">
             <div class="formnew">
               <%= f.button :submit, class: 'btn-show' %>
               <% end %>
-              <%= link_to 'back to my console', devices_path, class: 'btn-show'%>
+              <%= link_to 'back to my devices', my_devices_path, class: 'btn-show'%>
             </div>
           </div>
         </div>

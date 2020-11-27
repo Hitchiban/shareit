@@ -6,8 +6,7 @@
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Where do you want to rent a console ?"
-          %>
+            placeholder: "type a console, a place, a game..."%>
         <%= submit_tag "Search", class: "btn btn-primary btn-sm btn-block" %>
         <% end %>
   </div>
@@ -25,6 +24,9 @@
             </div>
             <div class="card-device-description">
               <div><%=device.name%></div>
+              <div><%=device.price%>€ per day</div>
+              <div><%=device.brand%></div>
+              <div><%=device.controller%> controller(s)</div>
               <div><%= device.address%></div>
             </div>
           </div>

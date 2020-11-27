@@ -51,7 +51,10 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"> <strong>Description :</strong> <%= @device.description %></li>
+              <li class="list-group-item"> <strong>Brand :</strong> <%= @device.brand %></li>
               <li class="list-group-item"> <strong>Price :</strong> <%= @device.price %>€ per day</li>
+              <li class="list-group-item"> <strong>Controllers :</strong> <%= @device.controller %></li>
+              <li class="list-group-item"> <strong>Games provided :</strong> <%= @device.game %></li>
               <li class="list-group-item"> <strong>Localisation :</strong> <%= @device.address %></li>
            </ul>
           </div>
@@ -78,6 +81,7 @@
         <% @device.reviews.each do |review| %>
         <li>
           <div>
+            <%= review.title %>
             <%= review.content %> .....
             <%= review.rating %>
           </div>
@@ -87,11 +91,13 @@
     </ul>
   </div>
 <div>
+  <% if user_signed_in? && @device.user_id != current_user.id %>
   <h2>add a review</h2>
     <%= simple_form_for [@device, Review.new] do |f| %>
     <%= f.input :content %>
     <%= f.input :rating %>
     <%= f.button :submit %>
+    <% end %>
   <% end %>
   <i class="far fa-star"></i>
   <i class="far fa-star"></i>
@@ -99,3 +105,4 @@
   <i class="far fa-star"></i>
   <i class="far fa-star"></i>
 </div>
+<% console %>

@@ -3,12 +3,14 @@
     <div class="row">
       <div class="col-12 col-sm-8 col-md-4 offset-12 offset-sm-8 offset-md-4">
         <div class="container-new">
-          <%= simple_form_for(@device) do |f| %>
+                    <%= simple_form_for(@device) do |f| %>
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :price %>
+          <%= f.input :brand %>
+          <%= f.input :controller %>
+          <%= f.input :game %>
           <%= f.input :address %>
-
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <div class="btn-container">
             <div class="btn-formnew">
@@ -22,4 +24,3 @@
     </div>
   </div>
 </div>
-
