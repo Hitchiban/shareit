@@ -43,25 +43,28 @@
           <li>
             <div class="card-product">
              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos">
-              <h2>Product name</h2>
-              <%= booking.device.name %> | <%= booking.device.price %> euros per day
-              </div>
-              From <%= booking.date_begin %> to <%= booking.date_end %>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= booking.status %>
-                </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <ul>
-                      <li><%= link_to "accepted", accepted_rent_path(booking), method: :patch %></li>
-                      <li><%= link_to "pending", pending_rent_path(booking), method: :patch %></li>
-                      <li><%= link_to "refused", refused_rent_path(booking), method: :patch %></li>
-                   </ul>
-                  </div>
-                </div>
+              <div class="card-container">
+                <div class="card-product-infos">
+                <h2><%= booking.device.name %></h2>
+                the total price is: <%= (booking.date_end - booking.date_begin).to_i * booking.device.price %>€
                 <br>
-            <% end %>
+                From <%= booking.date_begin %> to <%= booking.date_end %>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= booking.status %>
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <ul>
+                        <li><%= link_to "accepted", accepted_rent_path(booking), method: :patch %></li>
+                        <li><%= link_to "pending", pending_rent_path(booking), method: :patch %></li>
+                        <li><%= link_to "refused", refused_rent_path(booking), method: :patch %></li>
+                     </ul>
+                    </div>
+                  </div>
+                  <br>
+              <% end %>
+              </div>
             </div>
           </li>
         </ul>
