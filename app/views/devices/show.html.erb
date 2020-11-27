@@ -7,7 +7,7 @@
 </div>
 <div class="container">
   <div class="row mb-4">
-    <div class="col-sm-6">
+    <div class="col-sm-6 mt-3">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -66,7 +66,7 @@
               <div class="card-booking-text">
               </div>
             </div>
-            <%= f.button :submit,'Send the request', class: 'btn-show' %>
+            <%= f.button :submit,'Send the request', class: 'btn-show mt-5' %>
           <% end %>
         </div>
         </div>
@@ -79,11 +79,13 @@
   <% if @device.reviews.blank? %>
     Be the first to leave a review for <%= @device.name %>
   <% else %>
-    <h4><%= pluralize @device.reviews.size, "review" %> :</h4>
+    <h4><strong><%= pluralize @device.reviews.size, "review" %></strong> :</h4>
     <h6>Average rating : <%= @average_rating.round(2) %></h6>
     <div class="reviews">
       <% @reviews.each do |review| %>
-      <h2><%= review.title %></h2>
+      <div class="border border-white m-2 p-2 rounded">
+      <h5>Review :</h5>
+      <h6><strong><%= review.title %></strong></h6>
         <p>
           <% review.rating.times do %>
             <i class="fas fa-star"></i>
@@ -92,20 +94,25 @@
             <i class="far fa-star"></i>
           <% end %>
         </p>
-        <p id="review-<%= review.id %>"><%= review.content %></p>
+        <div class="content">
+        <h6><%= review.content %></h6>
+        </div>
+        </div>
       <% end %>
   <% end %>
     </div>
 </div>
 
-<div class="container">
+<div class="container border-top">
   <% if user_signed_in? && @device.user_id != current_user.id %>
-
-  <h5>Add a review :</h5>
+  <div class="mt-3">
+  <h5><strong>Add a review :</strong></h5>
+  </div>
     <%= simple_form_for([@device, Review.new], remote: true) do |f| %>
   <%= f.input :title %>
   <%= f.input :rating, input_html: {value: 0}, as: :hidden %>
-    <div class="my-3">
+    <h6>Number of stars :</h6>
+    <div class="my-2">
         <% 5.times do |index| %>
           <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
         <% end %>
