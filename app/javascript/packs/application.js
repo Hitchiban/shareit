@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 // Use for the form calendar on the device show
-import "plugins/flatpickr";
+import { flatpickrFonction } from '../plugins/flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -42,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   dynamicRating();
+  flatpickrFonction();
 });
