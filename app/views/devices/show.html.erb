@@ -74,6 +74,7 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <% if @device.reviews.blank? %>
     Be the first to leave a review for <%= @device.name %>
@@ -82,6 +83,7 @@
     <h6>Average rating : <%= @average_rating.round(2) %></h6>
     <div class="reviews">
       <% @reviews.each do |review| %>
+      <%= review.title %>
         <p>
           <% review.rating.times do %>
             <i class="fas fa-star"></i>
@@ -101,14 +103,14 @@
 
   <h5>Add a review :</h5>
     <%= simple_form_for([@device, Review.new], remote: true) do |f| %>
-    <%= f.input :rating, input_html: {value: 0}, as: :hidden %>
+  <%= f.input :title %>  
+  <%= f.input :rating, input_html: {value: 0}, as: :hidden %>
     <div class="my-3">
         <% 5.times do |index| %>
           <i id="<%= index + 1 %>" class="review-rating far fa-star"></i>
         <% end %>
     </div>
     <%= f.input :content %>
-    
     <%= f.button :submit, class: "btn btn-primary mb-4" %>
     <% end %>
   <% end %>

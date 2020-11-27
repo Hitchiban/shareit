@@ -63,7 +63,11 @@
   padding-inline-end: 15px;
 }
 
-
+.container ul {
+  list-style-type: none;
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
+}
 .card-container{
   display: flex;
   justify-content: space-evenly;

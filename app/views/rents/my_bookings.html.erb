@@ -1,25 +1,46 @@
 <div class="container-bookings">
-  <div class="container">
-    <div class="col-md-8">
-      <% @my_bookings.each do |booking| %>
-        <% if booking.user_id == current_user.id %>
-          <div class="bookings-container">
-            <div class="bookings-dates">
-              <p>Congrats, this is your booking!</p>
-             <%= booking.device.name %> | <%= booking.date_begin %> | <%= booking.date_end %> |
-              <p>the total price is: <%= (booking.date_end - booking.date_begin).to_i * booking.device.price %>€</p>
-              <% if booking.status == 'accepted' %>
-              <p> booking accepted </p>
-              <% elsif booking.status == 'refused' %>
-              <p> booking refused </p>
-              <% else %>
-              <p> <%= booking.status %> </p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <h2>My booking</h2>
+  <% if @my_bookings.empty? %>
+    <div class="container-item-1">
+      <h2>You have 0 bookings</h2>
+    </div>
+  <% else %>
+    <h2>You have <%= @my_bookings.count %> bookings</h2>
+    <div class="container">
+      <div class="col-md-12">
+        <ul>
+          <% @my_bookings.each do |booking| %>
+            <li>
+              <div class="card-product">
+                <% if booking.user_id == current_user.id %>
+                <% if booking.device.photos.attached? %>
+                <%= cl_image_tag booking.device.photos.first.key, height: 100, crop: :fill %>
+                <% end %>
+                  <div class="card-container">
+                    <div class="card-product-infos">
+                      <h2><%= booking.device.name %></h2>
+                      the total price is: <%= (booking.date_end - booking.date_begin).to_i * booking.device.price %>€
+                      <br>
+                      From <%= booking.date_begin %> to <%= booking.date_end %>
+                    </div>
+                  </div>
+                      <div class="card-btn">
+                        <% if booking.status == 'accepted' %>
+                        <div class="btn btn-success">Accepted</div>
+                        <% elsif booking.status == 'refused' %>
+                        <div class="btn btn-danger">Refused</div>
+                        <% else %>
+                        <div class="btn btn-warning"><%= booking.status %></div>
+                        <% end %>
+                      </div>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 
