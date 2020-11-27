@@ -60,11 +60,12 @@
 .card-device {
   margin: 10px;
   display: flex;
-  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25);
-  border-radius: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDDDDD;
   .card-device-image {
     img {
       border-radius: 8px;
+      width: 350px;
     }
 
   }
@@ -75,17 +76,6 @@
     padding: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .title-white {
   color: white;

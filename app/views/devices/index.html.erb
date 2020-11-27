@@ -6,7 +6,8 @@
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "type a console, a place, a game..."%>
+            placeholder: "Type an address, a console ..."
+          %>
         <%= submit_tag "Search", class: "btn btn-primary btn-sm btn-block" %>
         <% end %>
   </div>
@@ -19,7 +20,7 @@
           <div class="card-device">
             <div class="card-device-image">
               <% if device.photos.attached? %>
-                <%= cl_image_tag device.photos.first.key, height: 300, crop: :fill %>
+                <%= cl_image_tag device.photos.first.key, height: 200, crop: :fill %>
               <% end %>
             </div>
             <div class="card-device-description">
@@ -27,6 +28,7 @@
               <div><%=device.price%>€ per day</div>
               <div><%=device.brand%></div>
               <div><%=device.controller%> controller(s)</div>
+              <div><%=device.description%></div>
               <div><%= device.address%></div>
             </div>
           </div>
