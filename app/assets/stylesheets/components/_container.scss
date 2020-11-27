@@ -51,5 +51,21 @@
   color: black;
 }
 
+.container-devices{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+.container-devices ul {
+  list-style-type: none;
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
+}
 
 
+.card-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
